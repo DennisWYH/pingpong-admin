@@ -16,8 +16,10 @@ export class DisplaySentenceComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
   }
+
   getData(): void {
-    this.dataService.getData()
+    this.dataService.getSentenceData()
     .subscribe();
+    console.log(this.dataService.getSentenceData());
   }
 }

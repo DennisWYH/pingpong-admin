@@ -9,7 +9,8 @@ import { Hero } from './hero';
 @Injectable({ providedIn: 'root' })
 export class DataService {
 
-  private dataUrl = 'https://pingpong-fun.herokuapp.com/previous';  // URL to current backend Go demo app in heroku
+//   private dataUrl = 'https://pingpong-fun.herokuapp.com/previous';  // URL to current backend Go demo app in heroku
+  private dataUrl = 'localhost:8080/list-sentence';  // URL to localhost backend on my laptop
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,8 +19,8 @@ export class DataService {
   constructor(
     private http: HttpClient) { }
 
-  /** GET data from the server */
-  getData(): Observable<string> {
+  /** GET sentence data from the pingpong backend */
+  getSentenceData(): Observable<string> {
     return this.http.get<string>(this.dataUrl)
       .pipe(
       );
