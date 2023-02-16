@@ -5,16 +5,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AddSentenceComponent } from './add-sentence/add-sentence.component';
+import { DisplaySentenceComponent } from './display-sentence/display-sentence.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
-    AddSentenceComponent
+    AddSentenceComponent,
+    DisplaySentenceComponent
   ],
   providers: [],
   bootstrap: [ AppComponent ]
