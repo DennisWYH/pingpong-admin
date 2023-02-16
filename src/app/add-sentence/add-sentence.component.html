@@ -1,9 +1,9 @@
 <div>
   <p>This sector where you can add a new sentence to the table</p>
 </div>
-  <!-- <form> -->
-  <!-- <form [ formGroup ]="addSentenceForm" (ngSubmit)="onSubmit()"> -->
-  <form [ formGroup ] = "" (ngSubmit)="onSubmit()">
+<!-- <form> -->
+<!-- <form [ formGroup ]="addSentenceForm" (ngSubmit)="onSubmit()"> -->
+<form [formGroup]="addSentenceForm" (ngSubmit)="onSubmit()">
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Chinese Sentence</label>
     <div class="col-sm-10">
@@ -11,15 +11,15 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Pinyin</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Pinyin</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Pinyin" formControlName="pinyin">
+      <input type="email" class="form-control" id="inputPassword3" placeholder="Pinyin" formControlName="pinyin">
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">English translation</label>
+    <label for="inputEmail3" class="col-sm-2 col-form-label">English translation</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Type in English translation here" formControlName="english-translation">
+      <input type="email" class="form-control" id="inputPassword3" placeholder="Type in English translation here" formControlName="englishTranslation">
     </div>
   </div>
   <div class="form-group row">
@@ -28,35 +28,35 @@
       <br>
       <div class="col-sm-12">
         <label>
-          <input type="radio" name="options" id="option1">
+          <input type="radio" value="black" name="options" id="option1" formControlName="difficultyLevel">
           <img class="grade-circle" id="black-circle" src="./../assets/icons/black-circle.svg" alt="black">
         </label>
         <label>
-          <input type="radio" name="options" id="option1">
+          <input type="radio" value="blue" name="options" id="option1" formControlName="difficultyLevel">
           <img class="grade-circle" id="blue-circle" src="./../assets/icons/blue-circle.svg" alt="blue">
         </label>
         <label>
-          <input type="radio" name="options" id="option1">
+          <input type="radio" value="orange" name="options" id="option1" formControlName="difficultyLevel">
           <img class="grade-circle" id="orange-circle" src="./../assets/icons/orange-circle.svg" alt="orange">
         </label>
         <label>
-          <input type="radio" name="options" id="option1">
+          <input type="radio" value="yellow" name="options" id="option1" formControlName="difficultyLevel">
           <img class="grade-circle" id="yellow-circle" src="./../assets/icons/yellow-circle.svg" alt="yellow">
         </label>
         <label>
-          <input type="radio" name="options" id="option1">
+          <input type="radio" value="mint" name="options" id="option1" formControlName="difficultyLevel">
           <img class="grade-circle" id="mint-circle" src="./../assets/icons/mint-circle.svg" alt="mint">
         </label>
         <label>
-          <input type="radio" name="options" id="option1">
+          <input type="radio" value="pink" name="options" id="option1" formControlName="difficultyLevel">
           <img class="grade-circle" id="pink-circle" src="./../assets/icons/pink-circle.svg" alt="pink">
         </label>
       </div>
     </div>
-</div>
+  </div>
   <div class="form-group row">
       <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary">Add sentence to database</button>
+        <button type="submit" class="button btn btn-primary">Add sentence to database</button>
       </div>
   </div>
 </form>

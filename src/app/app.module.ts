@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AddSentenceComponent } from './add-sentence/add-sentence.component';
@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     CommonModule,
     FormsModule,
@@ -24,3 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
+
+// Import reactiveFormModule here for the form to work
+// https://stackoverflow.com/questions/39152071/cant-bind-to-formgroup-since-it-isnt-a-known-property-of-form

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-sentence',
@@ -18,9 +18,12 @@ export class AddSentenceComponent {
     private formBuilder: FormBuilder,
   ){}
 
+  sendDataToPingpongBackend(){
+
+  }
+  
   onSubmit(): void {
     // Process addSentence form data here
     console.warn("Your sentence has been submitted", this.addSentenceForm.value)
-    this.addSentenceForm.reset();
   }
 }
