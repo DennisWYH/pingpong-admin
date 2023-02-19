@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 
 @Component({
@@ -14,22 +14,41 @@ export class AddSentenceComponent {
     englishTranslation: '',
     difficultyLevel: '',
   });
+  chineseSentence: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
   ){}
 
-  sendDataToPingpongBackend(){
-  
-  }
-
-  private chineseSentence: any;
   private response: any;
+
+  difficultyLevelNameToNumber(): number{
+    switch (this.addSentenceForm.value.difficultyLevel) {
+      case 'black':
+        return 1
+      case 'blue':
+        return 2
+      case 'orange':
+        return 3
+      case 'yellow':
+        return 4
+      case 'mint':
+        return 5
+      case 'pink':
+        return 6
+      default:
+        return 1
+    }
+  }
   onSubmit(): void {
+    // Form fields validation
+    // Switch level name to number
+    var levelInNumber = this.difficultyLevelNameToNumber()
     // Process addSentence form data here
     console.warn("Your sentence has been submitted", this.addSentenceForm.value);
     this.chineseSentence = this.addSentenceForm.value;
+    this.chineseSentence.difficultyLevel = levelInNumber;
     // const headers = { 'content-type': 'application/json'}; 
     const body = JSON.stringify(this.chineseSentence);
     // For corss-domain requests, For cross-domain requests, 
@@ -44,4 +63,4 @@ export class AddSentenceComponent {
     )
   }
 
-}
+  }

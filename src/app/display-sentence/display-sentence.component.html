@@ -6,17 +6,17 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col-sm-3">Chinese</th>
-      <th scope="col-1">difficulty level</th>
-      <th scope="col-6">pinyin</th>
-      <th scope="col-2">english translation</th>
+      <th scope="col-1">Difficulty level</th>
+      <th scope="col-6">Pinyin</th>
+      <th scope="col-2">English Translation</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let sentence of sentences"  >
       <td>{{ sentence.Chinese | json}}</td>
       <td>{{ sentence.DifficultyLevel | json}}</td>
-      <td>{{ sentence.PinyinSlice | json}}</td>
-      <td>{{ sentence.English | json}}</td>
+      <td>{{ sentence.Pinyin | json}}</td>
+      <td>{{ sentence.EnglishTranslation | json}}</td>
     </tr>
   </tbody>
 </table>

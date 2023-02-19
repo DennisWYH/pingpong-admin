@@ -8,23 +8,24 @@ import { AddSentenceComponent } from './add-sentence/add-sentence.component';
 import { DisplaySentenceComponent } from './display-sentence/display-sentence.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { CardViewComponent } from './card-view/card-view.component';
 
 @NgModule({
   imports: [
     FormsModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     BrowserModule,
     CommonModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'admin', component: AppComponent}
-    ])
   ],
   declarations: [
     AppComponent,
     AddSentenceComponent,
-    DisplaySentenceComponent
+    DisplaySentenceComponent,
+    CardViewComponent,
   ],
   providers: [],
   bootstrap: [ AppComponent ]
