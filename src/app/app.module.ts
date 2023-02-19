@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AddSentenceComponent } from './add-sentence/add-sentence.component';
 import { DisplaySentenceComponent } from './display-sentence/display-sentence.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -16,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'admin', component: AppComponent}
+    ])
   ],
   declarations: [
     AppComponent,

@@ -6,24 +6,29 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from './hero';
 
+export interface ChineseSentence {
+    chinese: string;
+    englishTranslation: string,
+    difficultyLevel: string,
+    pinyin: any;
+}
+
 @Injectable({ providedIn: 'root' })
 export class DataService {
-
 //   private dataUrl = 'https://pingpong-fun.herokuapp.com/previous';  // URL to current backend Go demo app in heroku
   private dataUrl = 'localhost:8080/list-sentence';  // URL to localhost backend on my laptop
-
+  private sentenceData = ''
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient
+  ){}
 
   /** GET sentence data from the pingpong backend */
-  getSentenceData(): Observable<string> {
-    return this.http.get<string>(this.dataUrl)
-      .pipe(
-      );
+  getSentenceData(): Observable<ChineseSentence> {
+    return this.http.get<ChineseSentence>(this.dataUrl);
   }
 
 }
