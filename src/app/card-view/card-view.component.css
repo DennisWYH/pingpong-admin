@@ -1,5 +1,67 @@
-.card {
-    border: solid;
-    border-color: antiquewhite;
+.cardView {
+    /* Online tooling: to design a gradient background image */
+    background-color: white;
+    width: 600px;
+    height:400px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    border-top: solid;
+    border-color: rgb(234, 89, 22);
 }
 
+.cardView-body {
+    width: 400px;
+    height: 200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+    /* border: solid; */
+    /* border-color: orange; */
+}
+
+.cardView-title {
+    margin-left:10px;
+    margin-top: 10px;
+    font-size: large;
+
+}
+.card-text {
+    margin-left: 10px;
+    color: black;
+    font-size: large;
+}
+
+.cardView-buttons-flash-done{
+    margin-top:100px;
+}
+
+.cardView-buttons-pagination {
+    /* border: solid; */
+    margin-top:200px;
+}
+
+.cardView-button-left{
+    text-align: left;
+}
+
+.cardView-button-right{
+    text-align: right;
+}
+
+/* Hide the buttons but keep their function */
+[type=radio] { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
