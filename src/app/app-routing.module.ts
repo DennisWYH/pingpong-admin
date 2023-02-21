@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CardViewComponent } from './card-view/card-view.component';
 import { AddSentenceComponent } from './add-sentence/add-sentence.component';
+import { AdminComponent} from './admin/admin.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/admin', pathMatch: 'full' },
-  { path: 'admin', component: AddSentenceComponent },
-  { path: 'cardView', component: CardViewComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: '', component: CardViewComponent },
 ];
 
 @NgModule({

@@ -29,10 +29,13 @@
     font-size: large;
 
 }
-.card-text {
+.card-text-div {
     margin-left: 10px;
     color: black;
     font-size: large;
+}
+
+.card-text {
 }
 
 .cardView-buttons-flash-done{
@@ -41,7 +44,7 @@
 
 .cardView-buttons-pagination {
     /* border: solid; */
-    margin-top:200px;
+    margin-top:300px;
 }
 
 .cardView-button-left{

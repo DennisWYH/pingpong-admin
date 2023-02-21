@@ -1,4 +1,7 @@
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-card-view',
@@ -7,13 +10,41 @@ import { AfterViewInit, Component, ElementRef } from '@angular/core';
 })
 export class CardViewComponent implements AfterViewInit{
   constructor(
-    private elementRef: ElementRef
-  ){}
+    private elementRef: ElementRef,
+    private dataService: DataService,
+    private http: HttpClient,
+   ){}
  
-  ngAfterViewInit() {
     // Have access to window.document object and set styles
     // https://stackoverflow.com/questions/46670795/how-to-change-whole-page-background-color-in-angular
+    ngAfterViewInit() {
     this.elementRef.nativeElement.ownerDocument
         .body.style.backgroundImage = "url(./../../assets/icons/gradient-center-light-red-light-blue.png)";
-}
+  }
+
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  public sentence : any;
+  getData() {
+    // Currently the handler for any request with the endpoint '/' is providing a sentence
+    // that is randomly selected in the db table of Chinese Sentence.
+    this.sentence = this.http.get('http://localhost:8080/')
+      .subscribe(
+        response => {
+          this.sentence = response;
+        }
+      )
+  }
+
+  onClickPrevious() {
+    var currentId = this.sentence.ID;
+    this.getData();
+  }
+
+  onClickNext() {
+    var currentId = this.sentence.ID;
+    this.getData();
+  }
   }

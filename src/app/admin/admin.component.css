@@ -1,0 +1,15 @@
+.display-area-div {
+    background-color: white;
+    border-radius: 10px;
+    padding:20px;
+}
+
+.add-sentence-div {
+    margin-bottom: 50px;
+}
+
+.display-sentence-div {
+    border-top: solid;
+    border-color: rgb(234, 89, 22);
+    border-width: thick;    
+}

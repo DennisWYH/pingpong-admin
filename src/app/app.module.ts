@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { CardViewComponent } from './card-view/card-view.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { CardViewComponent } from './card-view/card-view.component';
   ],
   declarations: [
     AppComponent,
+    AdminComponent,
     AddSentenceComponent,
     DisplaySentenceComponent,
     CardViewComponent,

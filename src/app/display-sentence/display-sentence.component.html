@@ -1,18 +1,17 @@
-<div>
-  <p>This sector displays what you have in your database  </p>
-</div>
-<!-- Angular json pipe for formatting -->
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col-sm-3">Chinese</th>
+      <th scope="col-1">ID</th>
+      <th scope="col-3">Chinese</th>
       <th scope="col-1">Difficulty level</th>
       <th scope="col-6">Pinyin</th>
-      <th scope="col-2">English Translation</th>
+      <th scope="col-1">English Translation</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let sentence of sentences"  >
+      <!-- Angular json pipe for formatting -->
+      <td>{{ sentence.ID | json}}</td>
       <td>{{ sentence.Chinese | json}}</td>
       <td>{{ sentence.DifficultyLevel | json}}</td>
       <td>{{ sentence.Pinyin | json}}</td>

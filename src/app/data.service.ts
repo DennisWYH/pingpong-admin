@@ -7,7 +7,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Hero } from './hero';
 
 export interface ChineseSentence {
-    chinese: string;
+    id: number,
+    chinese: string,
     englishTranslation: string,
     difficultyLevel: string,
     pinyin: any;
