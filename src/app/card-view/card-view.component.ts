@@ -46,7 +46,7 @@ export class CardViewComponent implements AfterViewInit{
     this.http.get('http://localhost:8080/previous', {params: queryParams})
     .subscribe(
       response => {
-        this.response = response;
+        this.sentence = response;
       }
     )  
     this.getData();
@@ -58,10 +58,9 @@ export class CardViewComponent implements AfterViewInit{
     this.http.get('http://localhost:8080/next', {params: queryParams})
     .subscribe(
       response => {
-        this.response = response;
-        // this.sentence = 
+        this.sentence = response;
       }
     )  
     this.getData();
   }
-  }
+}
