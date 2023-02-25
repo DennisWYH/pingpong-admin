@@ -1,0 +1,27 @@
+// The overall container of the navbar
+.navbar-container {
+    height: 80px;
+    // border-radius: 0px;
+    // padding: 0px;
+    // margin: 0px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    // border: 1px solid white;
+}
+
+// The nav bar items
+.navbar-items {
+    width: 600px;
+    // position: fixed;
+    // display: flex;
+    // To get rid of the default `dot` sign in front of item
+    list-style: none;
+    // The magic to center the navbar-items in the parent container
+    // https://www.freecodecamp.org/news/how-to-center-anything-with-css-align-a-div-text-and-more/
+    margin: 0 auto;
+    border-bottom: rbg(234, 89, 22);
+}
+
+.pingpong-icon {
+}
