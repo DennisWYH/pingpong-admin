@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { DataService } from '../data.service';
 
 
@@ -27,6 +27,8 @@ export class CardViewComponent implements AfterViewInit{
   }
 
   public sentence : any;
+  private response: any;
+
   getData() {
     // Currently the handler for any request with the endpoint '/' is providing a sentence
     // that is randomly selected in the db table of Chinese Sentence.
@@ -39,12 +41,26 @@ export class CardViewComponent implements AfterViewInit{
   }
 
   onClickPrevious() {
-    var currentId = this.sentence.ID;
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id", this.sentence.id-1);
+    this.http.get('http://localhost:8080/previous', {params: queryParams})
+    .subscribe(
+      response => {
+        this.response = response;
+      }
+    )  
     this.getData();
   }
 
   onClickNext() {
-    var currentId = this.sentence.ID;
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id", this.sentence.id+1);
+    this.http.get('http://localhost:8080/previous', {params: queryParams})
+    .subscribe(
+      response => {
+        this.response = response;
+      }
+    )  
     this.getData();
   }
   }
