@@ -55,10 +55,11 @@ export class CardViewComponent implements AfterViewInit{
   onClickNext() {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", this.sentence.id+1);
-    this.http.get('http://localhost:8080/previous', {params: queryParams})
+    this.http.get('http://localhost:8080/next', {params: queryParams})
     .subscribe(
       response => {
         this.response = response;
+        // this.sentence = 
       }
     )  
     this.getData();
