@@ -1,5 +1,5 @@
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<form [formGroup]="addSentenceForm" (ngSubmit)="onSubmit()">
+
+<form class="add-sentence-form" [formGroup]="addSentenceForm" (ngSubmit)="onSubmit()">
   <div class="form-group row">
     <label for="validationDefault02" class="col-sm-2 col-form-label">Chinese Sentence</label>
     <div class="col-sm-10">
@@ -19,11 +19,10 @@
     </div>
   </div>
   <div class="form-group row">
-    <div class="btn-group" data-toggle="buttons">
-      <label class="col-sm-2">Select a difficulty level of the sentence</label>
-      <br>
-      <div class="col-sm-12">
-        <label>
+    <div class="col-sm-12 btn-group" data-toggle="buttons">
+      <label for="inputEmail3" class="col-form-label col-sm-2 form-label-difficulty-level">Difficulty level</label>
+      <div class="col-sm-10 difficulty-level">
+        <label class="">
           <input type="radio" value="black" name="difficultyLevel" id="option1" formControlName="difficultyLevel" class="form-control" id="validationDefault02" required>
           <img class="grade-circle" id="black-circle" src="./../assets/icons/black-circle.svg" alt="black">
         </label>
