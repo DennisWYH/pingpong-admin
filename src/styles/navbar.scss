@@ -4,15 +4,18 @@
     // border-radius: 0px;
     // padding: 0px;
     // margin: 0px;
+    top: 0;
     left: 0;
     width: 100%;
     background-color: white;
-    // border: 1px solid white;
+    // border: 1px solid;
+    box-shadow: 0px 10px #EEE
 }
 
 // The nav bar items
 .navbar-items {
     width: 600px;
+    display: flex;
     // position: fixed;
     // display: flex;
     // To get rid of the default `dot` sign in front of item
@@ -20,8 +23,20 @@
     // The magic to center the navbar-items in the parent container
     // https://www.freecodecamp.org/news/how-to-center-anything-with-css-align-a-div-text-and-more/
     margin: 0 auto;
-    border-bottom: rbg(234, 89, 22);
+    border-bottom: 10px solid rbg(234, 89, 22);
 }
 
-.pingpong-icon {
+.pingpong-image {
+    // top: 50%;
+    // transform: translateY(-50%);
+}
+
+.pingpong-text {
+    text-align: center;
+    // https://stackoverflow.com/questions/40530101/why-is-translatey-50-needed-to-center-an-element-which-is-at-top-50#:~:text=the%20outer%20element.-,transform%3A%20translateY(%2D50%25)%3B,middle%20of%20the%20parent%20element.
+    margin-top: 10%;
+    margin-left: 20px;
+    transform: translateY(-50%);
+    font-size: 36px;
+    font-family: 'Bungee Outline';
 }
