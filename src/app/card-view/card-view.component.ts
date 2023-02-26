@@ -30,9 +30,12 @@ export class CardViewComponent implements AfterViewInit{
   private response: any;
 
   getData() {
+    console.log("------------ get data method is somehow triggered.");
     // Currently the handler for any request with the endpoint '/' is providing a sentence
     // that is randomly selected in the db table of Chinese Sentence.
-    this.sentence = this.http.get('http://localhost:8080/')
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id", 1);
+    this.sentence = this.http.get('http://localhost:8080/getById', {params: queryParams})
       .subscribe(
         response => {
           this.sentence = response;
@@ -43,24 +46,25 @@ export class CardViewComponent implements AfterViewInit{
   onClickPrevious() {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", this.sentence.id-1);
-    this.http.get('http://localhost:8080/previous', {params: queryParams})
+    this.http.get('http://localhost:8080/getById', {params: queryParams})
     .subscribe(
       response => {
         this.sentence = response;
       }
     )  
-    this.getData();
   }
 
   onClickNext() {
+    console.log("current sentence on the page is");
+    console.log(this.sentence.id);
+    console.log(this.sentence.Chinese);
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", this.sentence.id+1);
-    this.http.get('http://localhost:8080/next', {params: queryParams})
+    this.http.get('http://localhost:8080/getById', {params: queryParams})
     .subscribe(
       response => {
         this.sentence = response;
       }
     )  
-    this.getData();
   }
 }
