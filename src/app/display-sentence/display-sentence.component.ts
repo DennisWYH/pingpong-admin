@@ -20,7 +20,7 @@ export class DisplaySentenceComponent implements OnInit {
 
   public sentences : any;
   getData() {
-    this.sentences = this.http.get('http://localhost:8080/list-sentence')
+    this.sentences = this.http.get('https://pingpong-fun.herokuapp.com/list-sentence')
       .subscribe(
         response => {
           this.sentences = response;
