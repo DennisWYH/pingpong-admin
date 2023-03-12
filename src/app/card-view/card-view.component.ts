@@ -34,7 +34,7 @@ export class CardViewComponent implements AfterViewInit{
     // that is randomly selected in the db table of Chinese Sentence.
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", 1);
-    this.sentence = this.http.get('http://localhost:8080/getById', {params: queryParams})
+    this.sentence = this.http.get('https://pingpong-fun.herokuapp.com/getById', {params: queryParams})
       .subscribe(
         response => {
           this.sentence = response;
@@ -45,7 +45,7 @@ export class CardViewComponent implements AfterViewInit{
   onClickPrevious() {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", this.sentence.id-1);
-    this.http.get('http://localhost:8080/getById', {params: queryParams})
+    this.http.get('https://pingpong-fun.herokuapp.com/getById', {params: queryParams})
     .subscribe(
       response => {
         this.sentence = response;
@@ -56,7 +56,7 @@ export class CardViewComponent implements AfterViewInit{
   onClickNext() {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", this.sentence.id+1);
-    this.http.get('http://localhost:8080/getById', {params: queryParams})
+    this.http.get('https://pingpong-fun.herokuapp.com/getById', {params: queryParams})
     .subscribe(
       response => {
         this.sentence = response;
