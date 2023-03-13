@@ -24,6 +24,7 @@ export class DisplaySentenceComponent implements OnInit {
       .subscribe(
         response => {
           this.sentences = response;
+          console.log(this.sentences);
         }
       )
   }
