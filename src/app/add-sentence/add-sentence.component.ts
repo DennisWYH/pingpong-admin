@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpRequest } from '@angular/common/http';
+import { DisplaySentenceComponent } from '../display-sentence/display-sentence.component';
 
 @Component({
   selector: 'app-add-sentence',
@@ -19,6 +20,7 @@ export class AddSentenceComponent {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
+    private displayComponent: DisplaySentenceComponent,
   ){}
 
   private response: any;
@@ -61,6 +63,7 @@ export class AddSentenceComponent {
         this.response = response;
       }
     )
+    this.displayComponent.getData();
   }
 
   }
