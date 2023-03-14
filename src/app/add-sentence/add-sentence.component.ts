@@ -42,6 +42,7 @@ export class AddSentenceComponent {
         return 1
     }
   }
+
   onSubmit(): void {
     // Form fields validation
     // Switch level name to number
@@ -62,6 +63,7 @@ export class AddSentenceComponent {
         this.response = response;
       }
     )
+    location.reload();
   }
 
   }
