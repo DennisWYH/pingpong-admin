@@ -15,7 +15,8 @@ export class DisplaySentenceComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    this.getData();
+    this.sentences = this.dataService.getSentenceData();
+    // this.getData();
   }
 
   public sentences : any;

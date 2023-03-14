@@ -14,11 +14,13 @@ export interface ChineseSentence {
     pinyin: any;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable(
+  { providedIn: 'root' }
+)
 export class DataService {
-//   private dataUrl = 'https://pingpong-fun.herokuapp.com/previous';  // URL to current backend Go demo app in heroku
-  private dataUrl = 'localhost:8080/list-sentence';  // URL to localhost backend on my laptop
-  private sentenceData = ''
+  private dataUrl = 'https://pingpong-fun.herokuapp.com/list-sentence';
+  // private dataUrl = 'localhost:8080/list-sentence';  // URL to localhost backend on my laptop
+  private sentences: any
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -28,8 +30,13 @@ export class DataService {
   ){}
 
   /** GET sentence data from the pingpong backend */
-  getSentenceData(): Observable<ChineseSentence> {
-    return this.http.get<ChineseSentence>(this.dataUrl);
+  getSentenceData(){
+    this.sentences = this.http.get(this.dataUrl)
+      .subscribe(
+        response => {
+          this.sentences = response;
+        }
+      )  
   }
 
 }
