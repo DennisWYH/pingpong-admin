@@ -20,7 +20,6 @@ export class AddSentenceComponent {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private displayComponent: DisplaySentenceComponent,
   ){}
 
   private response: any;
@@ -63,7 +62,6 @@ export class AddSentenceComponent {
         this.response = response;
       }
     )
-    this.displayComponent.getData();
   }
 
   }
