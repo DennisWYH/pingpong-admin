@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { DisplaySentenceComponent } from '../display-sentence/display-sentence.component';
 import { DataService } from '../data.service';
+import { from, Observable, EventEmitter } from 'rxjs';
 
 @Component({
   selector: 'app-add-sentence',
@@ -10,6 +11,8 @@ import { DataService } from '../data.service';
   styleUrls: ['./add-sentence.component.css']
 })
 export class AddSentenceComponent {
+  @Output() myEvent = new EventEmitter();
+
   addSentenceForm = this.formBuilder.group({
     chinese: '',
     pinyin: '',
@@ -66,7 +69,5 @@ export class AddSentenceComponent {
       }
     )
     // location.reload();
-    this.dataService.getData().subscribe();
   }
-
   }

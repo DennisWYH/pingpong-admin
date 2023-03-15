@@ -26,4 +26,12 @@ export class DisplaySentenceComponent implements OnInit {
       }
     );
   }
+
+  onAddNewSentence() {
+    this.dataService.getData().subscribe(
+      response => {
+        this.sentences = response;
+      }
+    );
+  }
 }
