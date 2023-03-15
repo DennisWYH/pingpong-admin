@@ -18,9 +18,9 @@ export interface ChineseSentence {
   { providedIn: 'root' }
 )
 export class DataService {
+  private sentences: any
   private dataUrl = 'https://pingpong-fun.herokuapp.com/list-sentence';
   // private dataUrl = 'localhost:8080/list-sentence';  // URL to localhost backend on my laptop
-  private sentences: any
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -30,13 +30,18 @@ export class DataService {
   ){}
 
   /** GET sentence data from the pingpong backend */
-  getSentenceData(){
-    this.sentences = this.http.get(this.dataUrl)
-      .subscribe(
-        response => {
-          this.sentences = response;
-        }
-      )  
+  // private sentences: any
+  // getSentenceData(){
+  //   this.sentences = this.http.get(this.dataUrl)
+  //     .subscribe(
+  //       response => {
+  //         this.sentences = response;
+  //       }
+  //     )  
+  // }
+  // Angular observerable documentation
+  // https://angular.io/guide/observables
+  getData() {
+    return this.http.get(this.dataUrl);
   }
-
 }

@@ -14,18 +14,23 @@ export class DisplaySentenceComponent implements OnInit {
     private http: HttpClient,
     ) {}
 
-  ngOnInit(): void {
-    this.sentences = this.dataService.getSentenceData();
+  public sentences : any;
+
+  ngOnInit() {
+    this.dataService.getData().subscribe(
+      response => {
+        this.sentences = response;
+      }
+    );
     // this.getData();
   }
 
-  public sentences : any;
-  getData() {
-    this.sentences = this.http.get('https://pingpong-fun.herokuapp.com/list-sentence')
-      .subscribe(
-        response => {
-          this.sentences = response;
-        }
-      )
-  }
+  // getData() {
+  //   this.sentences = this.http.get('https://pingpong-fun.herokuapp.com/list-sentence')
+  //     .subscribe(
+  //       response => {
+  //         this.sentences = response;
+  //       }
+  //     )
+  // }
 }
