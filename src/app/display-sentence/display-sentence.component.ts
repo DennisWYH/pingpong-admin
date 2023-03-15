@@ -17,20 +17,13 @@ export class DisplaySentenceComponent implements OnInit {
   public sentences : any;
 
   ngOnInit() {
+    // Below code is a Observer modle (as in Observerable and Observer model)
+    // When it calls the subscribe() function, the Observerable will provide data to it
+    // It gets the response data from Observerable and then pass the reponse to its variable this.sentences
     this.dataService.getData().subscribe(
       response => {
         this.sentences = response;
       }
     );
-    // this.getData();
   }
-
-  // getData() {
-  //   this.sentences = this.http.get('https://pingpong-fun.herokuapp.com/list-sentence')
-  //     .subscribe(
-  //       response => {
-  //         this.sentences = response;
-  //       }
-  //     )
-  // }
 }
