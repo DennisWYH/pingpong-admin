@@ -39,6 +39,7 @@ export class DataService {
   }
 
   postRemoveSentence(param: any){
+    console.log("let's see what's in the param of postRemoveSentence....", param);
     return this.http.post(this.dataUrl + '/removeById', param, )   
   }  
 }

@@ -44,7 +44,7 @@ export class DisplaySentenceComponent implements OnInit {
     queryParams = queryParams.append("id", id);
     this.dataService.postRemoveSentence(queryParams).subscribe(
       response => {
-        this.sentences = response;
+        // this.sentences = response;
       }
     );  
 
