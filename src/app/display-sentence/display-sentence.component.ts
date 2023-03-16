@@ -44,8 +44,8 @@ export class DisplaySentenceComponent implements OnInit {
     this.dataService.postRemoveSentence({params: queryParams}).subscribe(
       response => {
         // this.sentences = response;
-      }
+      },
+      () => this.ngOnChanges(),
     );  
-    this.ngOnChanges();
   }
 }
