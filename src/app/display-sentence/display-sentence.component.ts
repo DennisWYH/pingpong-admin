@@ -42,7 +42,7 @@ export class DisplaySentenceComponent implements OnInit {
     console.log("id of the sentence to be removed is...", id);
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", id);
-    this.dataService.postRemoveSentence({queryParams}).subscribe(
+    this.dataService.postRemoveSentence({params: queryParams}).subscribe(
       response => {
         // this.sentences = response;
       }
