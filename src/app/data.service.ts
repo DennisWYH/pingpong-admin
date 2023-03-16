@@ -34,12 +34,12 @@ export class DataService {
     return this.http.get(this.dataUrl + "/getById", param, );
   }
 
-   postAddSentence(body:any) {
-    return this.http.post(this.dataUrl + '/add-sentence', body, )   
+  postAddSentence(body:any) {
+    return this.http.post(this.dataUrl + '/add-sentence', body, );   
   }
 
-  postRemoveSentence(param: any){
+  postRemoveSentence(param: any) {
     console.log("let's see what's in the param of postRemoveSentence....", param);
-    return this.http.post(this.dataUrl + '/removeById', param, )   
-  }  
+    return this.http.post(this.dataUrl + '/removeById', param, );
+  }
 }
