@@ -33,6 +33,7 @@ export class DisplaySentenceComponent implements OnInit {
     this.dataService.getSentencesData().subscribe(
       response => {
         this.sentences = response;
+        this.refreshPage = false;
       }
     );  
   }
