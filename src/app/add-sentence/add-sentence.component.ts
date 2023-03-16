@@ -60,12 +60,13 @@ export class AddSentenceComponent {
     // setting the content type to anything other than application/x-www-form-urlencoded, 
     // multipart/form-data, or text/plain will trigger the browser to send a preflight OPTIONS request to the server.
     // https://stackoverflow.com/questions/25727306/request-header-field-access-control-allow-headers-is-not-allowed-by-access-contr
-    this.http.post('https://pingpong-fun.herokuapp.com/add-sentence', body, )
-    .subscribe(
-      response => {
-        this.response = response;
-      }
-    )
+    
+    // this.http.post('https://pingpong-fun.herokuapp.com/add-sentence', body, )
+    // .subscribe(
+    //   response => {
+    //     this.response = response;
+    //   }
+    // )
 
     this.dataService.postAddSentence(body).subscribe(
       response => {
