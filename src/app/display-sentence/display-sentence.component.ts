@@ -47,6 +47,6 @@ export class DisplaySentenceComponent implements OnInit {
         // this.sentences = response;
       }
     );  
-
+    this.ngOnChanges();
   }
 }
