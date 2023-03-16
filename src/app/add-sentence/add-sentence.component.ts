@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { DisplaySentenceComponent } from '../display-sentence/display-sentence.component';
@@ -67,5 +67,11 @@ export class AddSentenceComponent {
       }
     )
     // location.reload();
-  }
+    }
+
+    @Output() newSentenceEvent = new EventEmitter<string>();
+
+    onAddNewSentence() {
+      this.newSentenceEvent.emit();
+    }
   }

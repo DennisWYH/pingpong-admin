@@ -15,5 +15,9 @@ export class AdminComponent implements AfterViewInit {
     this.elementRef.nativeElement.ownerDocument
       .body.style.backgroundImage = "url(./../../assets/icons/gradient-center-light-red-light-blue.png)";
   }
+
+  addSentenceNotify() {
+    var refreshPage = true;
+  }
 }
 

@@ -1,5 +1,5 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
 
@@ -15,6 +15,7 @@ export class DisplaySentenceComponent implements OnInit {
     ) {}
 
   public sentences : any;
+  @Input() refreshPage = false;
 
   ngOnInit() {
     // Below code is a Observer modle (as in Observerable and Observer model)
@@ -27,11 +28,21 @@ export class DisplaySentenceComponent implements OnInit {
     );
   }
 
-  onAddNewSentence() {
-    this.dataService.getData().subscribe(
-      response => {
-        this.sentences = response;
-      }
-    );
+  ngOnChanges() {
+    if (this.refreshPage == true) {
+      this.dataService.getData().subscribe(
+        response => {
+          this.sentences = response;
+        }
+      );  
+    }
   }
+
+  // onAddNewSentence() {
+  //   this.dataService.getData().subscribe(
+  //     response => {
+  //       this.sentences = response;
+  //     }
+  //   );
+  // }
 }

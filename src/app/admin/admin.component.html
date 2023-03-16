@@ -13,9 +13,9 @@
 
 <div class="display-area-div">
   <div class="add-sentence-div">
-    <app-add-sentence></app-add-sentence>
+    <app-add-sentence (newSentenceEvent)="addSentenceNotify()"></app-add-sentence>
   </div>
   <div class="display-sentence-div">
-    <app-display-sentence></app-display-sentence>
+    <app-display-sentence [refreshPage]="refreshPage"></app-display-sentence>
   </div>
 </div>
