@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpParams } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
@@ -36,5 +36,16 @@ export class DisplaySentenceComponent implements OnInit {
         }
       );  
     }
+  }
+
+  onRemoveSentence(id: string) {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id", id);
+    this.dataService.postRemoveSentence(queryParams).subscribe(
+      response => {
+        this.sentences = response;
+      }
+    );  
+
   }
 }

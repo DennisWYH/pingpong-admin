@@ -30,7 +30,15 @@ export class DataService {
     return this.http.get(this.dataUrl + "/list-sentence");
   }
 
-  postAddSentence(body:any) {
+  getSentenceById(param: any) {
+    return this.http.get(this.dataUrl + "/getById", param, );
+  }
+
+   postAddSentence(body:any) {
     return this.http.post(this.dataUrl + '/add-sentence', body, )   
   }
+
+  postRemoveSentence(param: any){
+    return this.http.post(this.dataUrl + '/removeById', param, )   
+  }  
 }

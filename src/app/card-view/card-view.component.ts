@@ -42,25 +42,44 @@ export class CardViewComponent implements AfterViewInit{
       )
   }
 
+  // onClickPrevious() {
+  //   let queryParams = new HttpParams();
+  //   queryParams = queryParams.append("id", this.sentence.id-1);
+  //   this.http.get('https://pingpong-fun.herokuapp.com/getById', {params: queryParams})
+  //   .subscribe(
+  //     response => {
+  //       this.sentence = response;
+  //     }
+  //   )  
+  // }
+
+  // onClickNext() {
+  //   let queryParams = new HttpParams();
+  //   queryParams = queryParams.append("id", this.sentence.id+1);
+  //   this.http.get('https://pingpong-fun.herokuapp.com/getById', {params: queryParams})
+  //   .subscribe(
+  //     response => {
+  //       this.sentence = response;
+  //     }
+  //   )  
+  // }
   onClickPrevious() {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", this.sentence.id-1);
-    this.http.get('https://pingpong-fun.herokuapp.com/getById', {params: queryParams})
-    .subscribe(
+    this.dataService.getSentenceById({params: queryParams}).subscribe(
       response => {
         this.sentence = response;
       }
-    )  
+    );  
   }
 
   onClickNext() {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id", this.sentence.id+1);
-    this.http.get('https://pingpong-fun.herokuapp.com/getById', {params: queryParams})
-    .subscribe(
+    this.dataService.getSentenceById({params: queryParams}).subscribe(
       response => {
         this.sentence = response;
       }
-    )  
+    );  
   }
 }
