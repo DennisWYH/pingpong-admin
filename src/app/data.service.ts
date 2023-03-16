@@ -1,11 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
-import { Hero } from './hero';
-
 export interface ChineseSentence {
     id: number,
     chinese: string,
@@ -19,7 +14,7 @@ export interface ChineseSentence {
 )
 export class DataService {
   private sentences: any
-  private dataUrl = 'https://pingpong-fun.herokuapp.com/list-sentence';
+  private dataUrl = 'https://pingpong-fun.herokuapp.com';
   // private dataUrl = 'localhost:8080/list-sentence';  // URL to localhost backend on my laptop
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -29,19 +24,13 @@ export class DataService {
     private http: HttpClient
   ){}
 
-  /** GET sentence data from the pingpong backend */
-  // private sentences: any
-  // getSentenceData(){
-  //   this.sentences = this.http.get(this.dataUrl)
-  //     .subscribe(
-  //       response => {
-  //         this.sentences = response;
-  //       }
-  //     )  
-  // }
   // Angular observerable documentation
   // https://angular.io/guide/observables
-  getData() {
-    return this.http.get(this.dataUrl);
+  getSentencesData() {
+    return this.http.get(this.dataUrl + "/list-sentence");
+  }
+
+  postAddSentence(body:any) {
+    return this.http.post(this.dataUrl + '/add-sentence', body, )   
   }
 }

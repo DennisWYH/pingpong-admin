@@ -21,7 +21,7 @@ export class DisplaySentenceComponent implements OnInit {
     // Below code is a Observer modle (as in Observerable and Observer model)
     // When it calls the subscribe() function, the Observerable will provide data to it
     // It gets the response data from Observerable and then pass the reponse to its variable this.sentences
-    this.dataService.getData().subscribe(
+    this.dataService.getSentencesData().subscribe(
       response => {
         this.sentences = response;
       }
@@ -30,19 +30,11 @@ export class DisplaySentenceComponent implements OnInit {
 
   ngOnChanges() {
     if (this.refreshPage == true) {
-      this.dataService.getData().subscribe(
+      this.dataService.getSentencesData().subscribe(
         response => {
           this.sentences = response;
         }
       );  
     }
   }
-
-  // onAddNewSentence() {
-  //   this.dataService.getData().subscribe(
-  //     response => {
-  //       this.sentences = response;
-  //     }
-  //   );
-  // }
 }

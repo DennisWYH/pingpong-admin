@@ -66,8 +66,13 @@ export class AddSentenceComponent {
         this.response = response;
       }
     )
-    // location.reload();
-    }
+
+    this.dataService.postAddSentence(body).subscribe(
+      response => {
+        this.response = response;
+      }
+    );
+  }
 
     @Output() newSentenceEvent = new EventEmitter<string>();
 
