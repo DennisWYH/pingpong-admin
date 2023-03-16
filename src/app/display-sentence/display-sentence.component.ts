@@ -29,13 +29,12 @@ export class DisplaySentenceComponent implements OnInit {
   }
 
   ngOnChanges() {
-    if (this.refreshPage == true) {
-      this.dataService.getSentencesData().subscribe(
-        response => {
-          this.sentences = response;
-        }
-      );  
-    }
+    console.log("---- ngOnchanges triggered ---- ")
+    this.dataService.getSentencesData().subscribe(
+      response => {
+        this.sentences = response;
+      }
+    );  
   }
 
   onRemoveSentence(id: string) {
