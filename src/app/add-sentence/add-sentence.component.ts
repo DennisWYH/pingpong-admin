@@ -51,23 +51,11 @@ export class AddSentenceComponent {
     // Switch level name to number
     var levelInNumber = this.difficultyLevelNameToNumber()
     // Process addSentence form data here
-    console.warn("Your sentence has been submitted", this.addSentenceForm.value);
     this.chineseSentence = this.addSentenceForm.value;
     this.chineseSentence.difficultyLevel = levelInNumber;
-    // const headers = { 'content-type': 'application/json'}; 
     const body = JSON.stringify(this.chineseSentence);
-    // For corss-domain requests, For cross-domain requests, 
-    // setting the content type to anything other than application/x-www-form-urlencoded, 
-    // multipart/form-data, or text/plain will trigger the browser to send a preflight OPTIONS request to the server.
-    // https://stackoverflow.com/questions/25727306/request-header-field-access-control-allow-headers-is-not-allowed-by-access-contr
     
-    // this.http.post('https://pingpong-fun.herokuapp.com/add-sentence', body, )
-    // .subscribe(
-    //   response => {
-    //     this.response = response;
-    //   }
-    // )
-
+    // Subscribe to the Observerable defined in dataService.
     this.dataService.postAddSentence(body).subscribe(
       response => {
         this.response = response;
@@ -75,9 +63,9 @@ export class AddSentenceComponent {
     );
   }
 
-    @Output() newSentenceEvent = new EventEmitter<string>();
-
-    onAddNewSentence() {
-      this.newSentenceEvent.emit();
-    }
+  // Notify admin.component, and then admin.component notify display-sentence.component to update the display
+  @Output() newSentenceEvent = new EventEmitter<string>();
+  onAddNewSentence() {
+    this.newSentenceEvent.emit();
   }
+}
